@@ -5,7 +5,7 @@ import generalString from '../fixtures/generalstring.json';
 import 'cypress-file-upload';
 import recruitment from "../pageobjects/recruitment"; 
 
-
+//Objects
 const loginObj = new loginPage();
 const myInfoObj = new myInfo();
 const rcrutment = new recruitment();
@@ -90,7 +90,6 @@ const rcrutment = new recruitment();
     
      // Log the CSS selector for debugging
      console.log(cellSelector); 
-
     })
 
    })
