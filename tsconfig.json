@@ -1,9 +1,32 @@
+
+
 {
   "compilerOptions": {
     "target": "es6",
     "lib": ["es6", "dom"],
     "types": ["cypress"],
-    "strict": true
+    "strict": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "moduleResolution": "node"
   },
-  "include": ["**/*.ts"]
+  "include": ["**/*.ts", "cypress.config.js"]
 }
+
+
+
+// {
+//   "compilerOptions": {
+//     "target": "es5",
+//     "lib": ["es5", "es6", "dom"],
+//     "types": ["cypress"],
+//     "allowJs": true,
+//     "skipLibCheck": true,
+//     "esModuleInterop": true
+//   },
+//   "include": [
+//     "cypress/**/*.ts",
+//     "cypress/**/*.js"
+//   ]
+// }
