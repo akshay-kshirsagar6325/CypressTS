@@ -7,6 +7,7 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch: # Allow manual triggering
 
 jobs:
   cypress-run:
@@ -25,7 +26,19 @@ jobs:
         run: npm install
 
       - name: Install Cypress
-        run: npx cypress install
+        run: npx cypress install # Ensure the Cypress binary is installed
 
       - name: Run Cypress Tests
         run: npm run cy:run
+
+      - name: Generate HTML Report
+        run: npm run generate-report # Ensure this script exists in package.json
+
+      - name: Upload HTML Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-report
+          path: cypress/reports/html/*.html # Adjust the path if necessary
+          
+      - name: List report files
+        run: ls -la cypress/reports/
