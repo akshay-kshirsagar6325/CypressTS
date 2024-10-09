@@ -1,38 +1,39 @@
-name: Cypress Tests CI
+name: CI
 
 on:
   push:
     branches:
-      - main  # Trigger on pushes to the 'main' branch
+      - main
   pull_request:
     branches:
-      - main  # Trigger on pull requests targeting 'main'
+      - main
 
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Node.js
+      - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'  # Use the appropriate Node.js version
+          node-version: '18.x'
 
-      - name: Install dependencies
+      - name: Install NPM dependencies
         run: npm install
 
-      - name: Run Cypress tests
-        run: npm run cy:run  # Adjust this to match your npm Cypress script
-        env:
-          CYPRESS_baseUrl: 'https://your-site-url.com'  # Replace with your base URL if needed
-          
-      # Optionally, you can upload the Cypress artifacts
-      - name: Upload Cypress videos and screenshots
-        if: failure()
-        uses: actions/upload-artifact@v3
+      - name: Cache Cypress binary
+        uses: actions/cache@v3
         with:
-          name: Cypress-artifacts
-          path: cypress/videos  # Cypress automatically saves test videos
+          path: ~/.cache/Cypress
+          key: ${{ runner.os }}-cypress-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-cypress
+
+      - name: Verify Cypress binary
+        run: npx cypress verify
+
+      - name: Run Cypress tests
+        run: npm run cy:run
