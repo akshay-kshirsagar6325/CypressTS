@@ -40,17 +40,6 @@ Cypress.Commands.add('login', (username: string, password: string) => {
 //   cy.get(selector).attachFile(filePath);  // Requires the use of cypress-file-upload plugin
 // });
 
-// Cypress.Commands.add('getData', (endpoint: string) => {
-//   cy.request({
-//       method: 'GET',
-//       url: endpoint,
-//   }).then((response) => {
-//       expect(response.status).to.eq(200);
-//       return response.body;
-//   });
-// });
-
-
 Cypress.Commands.add('apiRequest', function (
   method: string, 
   url: string, 
