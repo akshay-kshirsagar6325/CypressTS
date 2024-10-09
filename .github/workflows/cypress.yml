@@ -25,9 +25,6 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Install Cypress
-        run: npx cypress install
-
       - name: Run Cypress Tests
         run: npm run cy:run
 
@@ -39,3 +36,6 @@ jobs:
         with:
           name: cypress-report
           path: cypress/reports/html/*.html # Adjust the path if necessary
+          
+      - name: List report files
+        run: ls -la cypress/reports/

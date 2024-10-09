@@ -1,7 +1,6 @@
 {
   "scripts": {
-    "cy:run": "cypress run",
-    "generate-report": "marge cypress/reports/*.json -o cypress/reports/html"
+  "generate-report": "marge cypress/reports/*.json -o cypress/reports/html || echo 'No JSON report files found'"
   },
   "devDependencies": {
     "@cypress/webpack-preprocessor": "^6.0.2",
