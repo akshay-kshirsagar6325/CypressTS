@@ -32,6 +32,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-cypress
 
+      - name: Install Cypress binary
+        run: npx cypress install
+
       - name: Verify Cypress binary
         run: npx cypress verify
 
