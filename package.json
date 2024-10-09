@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "cy:run": "cypress run"
+  },
+  
   "devDependencies": {
     "@cypress/webpack-preprocessor": "^6.0.2",
     "@types/cypress": "^1.1.3",
