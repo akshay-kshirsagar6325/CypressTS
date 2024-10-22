@@ -1,0 +1,7 @@
+{
+    "orangeApi":
+    {
+        "recruitment": "/web/index.php/api/v2/recruitment/candidates?limit=50&offset=0&model=list&sortField=candidate.dateOfApplication&sortOrder=DESC",
+        "afterLogin": "/web/index.php/api/v2/buzz/feed?limit=5&offset=0&sortOrder=DESC&sortField=share.createdAtUtc"
+    }
+}

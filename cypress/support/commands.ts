@@ -57,3 +57,28 @@ Cypress.Commands.add('apiRequest', function (
     return response;  // Return the response for chaining in tests
   });
 });
+
+
+
+
+
+///////////custom commands for Javascript test case/////////////////////
+
+Cypress.Commands.add('getIframe1', (iFrame)=>{
+
+  return  cy.get('.category-cards .card.mt-4.top-card').eq(2).click(),
+          cy.get('.accordion .element-group .menu-list [id="item-3"]').contains("Nested Frames").click({force:true}),
+          cy.get(iFrame)
+          .its('0.contentDocument.body')
+          .should('be.visible')
+          .then(cy.wrap);  
+});
+
+Cypress.Commands.add('getIframe2', (iFrame2)=>{
+
+  return cy.get(iFrame2)
+  .its('0.contentDocument.body')
+  .should('be.visible')
+  .then(cy.wrap);
+
+});
