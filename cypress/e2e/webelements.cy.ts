@@ -2,6 +2,7 @@ import { clone } from "../../node_modules/cypress/types/lodash/index";
 import loginPage from "../pageobjects/loginPage"
 import myInfo from "../pageobjects/myInfo";
 import generalString from '../fixtures/generalstring.json';
+import apiHelper from '../fixtures/apihelper.json';
 import 'cypress-file-upload';
 import recruitment from "../pageobjects/recruitment"; 
 
@@ -19,7 +20,7 @@ const rcrutment = new recruitment();
       // loginObj.login('Admin', 'admin123');
       //loginObj.successText().should('have.text','Dashboard');
 
-      cy.intercept('GET', '/web/index.php/api/v2/buzz/feed?limit=5&offset=0&sortOrder=DESC&sortField=share.createdAtUtc').as('getBuzzFeed');
+      cy.intercept('GET', apiHelper.orangeApi.afterLogin).as('getBuzzFeed');
 
 
       //2nd way by custom commands
@@ -137,15 +138,15 @@ const rcrutment = new recruitment();
   
   it.only('should load all candidates', () => {
     // Intercept the API call to load candidates
-    cy.intercept('GET', '/web/index.php/api/v2/recruitment/candidates?limit=50&offset=0&model=list&sortField=candidate.dateOfApplication&sortOrder=DESC', {
+    cy.intercept('GET', apiHelper.orangeApi.recruitment, {
         statusCode: 200,
-        body: {
-            candidates: [
-                { id: 29, name: 'John Doe', dateOfApplication: '2024-06-02' },
-                // Add more mock candidates as needed
-            ],
-            limit: 50 // Add 'limit' to the mock response if needed
-        },
+        // body: {
+        //     candidates: [
+        //         //{ id: 29, name: 'John Doe', dateOfApplication: '2024-06-02' },
+        //         // Add more mock candidates as needed
+        //     ],
+        //     //limit: 50 // Add 'limit' to the mock response if needed
+        // },
     }).as('getCandidates');
 
     // Visit the recruitment page

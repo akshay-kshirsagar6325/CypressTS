@@ -1,0 +1,52 @@
+<html> 
+<head>Digital clock</head>
+<body>
+
+    <h1 id="dc">  </h1>
+
+</body>
+
+<script>
+
+    function showtime()
+    {
+        //it will by default follow the 24hrs clock
+        let date=new Date();
+        let h=date.getHours();
+        let m=date.getMinutes();
+        let s=date.getSeconds();
+
+        let session="AM";
+
+        //if we want to make it 12hrs clock
+        if(h==0)
+            h=12;
+        if(h>12)
+            h=h-12;
+            session="PM";
+
+        // if(h<10)
+        //     h="0"+h;
+        // if(m<10)
+        //     m="0"+m;
+        // if(s<10)
+        //     s="0"+s;    
+
+        //we can reduce the above code in short by ternary operation
+
+        h=(h<10) ? "0"+h : h;       //if h<10 will execute 1st part which is on the left of : or else will keep h which is on the right of :
+        m=(m<10) ? "0"+m : m;       //same like hours
+        s=(s<10) ? "0"+s : s;       //same like above two
+
+        let time=h+":"+m+":"+s+" "+session;
+
+        document.getElementById("dc").innerHTML=time;
+        setTimeout(showtime, 1000);     //we are calling function after every 1 second to make it digital/dynamic in nature
+    }
+
+    showtime();     //we need to call the function after creating it
+
+</script>
+
+
+</html>
