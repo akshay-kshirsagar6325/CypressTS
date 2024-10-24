@@ -46,8 +46,8 @@ console.log(students.slice([2]));       //[ 30, 40 ]     it will create a new ar
 
 
 //sort()     it will sort the text/nubers alpha/desc order
-let fruits=["Orange", "Lemon", "Mango", "Apple"];   //[ 'Apple', 'Lemon', 'Mango', 'Orange' ]
-console.log(fruits.sort());
+let fruits=["Orange", "Lemon", "Mango", "Apple"];  
+console.log(fruits.sort());                          //[ 'Apple', 'Lemon', 'Mango', 'Orange' ]
 
 let nums=[500, 200, 100, 700];          //[ 100, 200, 500, 700 ]
 console.log(nums.sort());
@@ -57,3 +57,6 @@ fruits=["Orange", "Lemon", "Mango", "Apple"];
 console.log("Original array:"+fruits);              //Orange,Lemon,Mango,Apple
 fruits.reverse();
 console.log("After reversing the array:"+fruits);   //Apple,Mango,Lemon,Orange
+
+let str = 'Anuj Kothari'
+console.log(str.split('').reverse().join(''));

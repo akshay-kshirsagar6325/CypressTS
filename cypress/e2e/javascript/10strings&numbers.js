@@ -43,7 +43,7 @@ console.log(s.trim());      //it will print the value without space
 
 //.........................Numbers...............................................
 
-//we can define the number is two ways
+//we can define the number in two ways
 //let x=100;
 //let x=new Number(100);
 
