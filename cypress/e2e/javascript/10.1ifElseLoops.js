@@ -42,8 +42,8 @@
 //     i++;
 // }
 
-//even number between 1 to 10
 
+//even number between 1 to 10
 let a=2;
 while(a<=10)
 {
@@ -52,7 +52,6 @@ while(a<=10)
 }
 
 //descending order 10 9 8 7......
-
 let d=10;
 while(d>0)
 {
