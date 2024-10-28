@@ -9,10 +9,14 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "module": "commonjs",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "baseUrl": "./"
+    
   },
-  "include": ["**/*.ts", "cypress.config.js"]
+  "include": ["**/*.ts", "cypress.config.js"],
+
 }
+
 
 
 
